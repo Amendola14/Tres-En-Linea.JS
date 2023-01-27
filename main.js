@@ -15,7 +15,7 @@ let board = [
     ["", "", ""],
 ];
 
-let turn = 0; //0 user, 1 = pc
+let turn = 0; 
 
 function renderBoard() {
     const html = board.map((row) => {
@@ -55,7 +55,7 @@ function PCPlays() {
 function PCPlaysV2() {
     debugger;
     console.log("PC Plays...V2 ");
-    //create three
+    
     const copy = JSON.parse(JSON.stringify(board));
     const root = new Node(copy);
     processNode(root, true, 0);
@@ -98,14 +98,14 @@ function processNode(root, nturn, level) {
             }
         }
     }
-    //check if winner cpu
+    
     for (let i = 0; i < root.children.length; i++) {
         if (checkIfPCWinner(root.children[i].value)) {
             pcSolutions.push(root.children[i]);
         }
     }
 
-    //process next level
+   
     for (let i = 0; i < root.children.length; i++) {
         const item = root.children[i];
         processNode(item, !nturn, level + 1);
